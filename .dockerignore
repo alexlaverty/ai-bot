@@ -1,0 +1,24 @@
+# Ignore version control
+.git
+.gitignore
+
+# Ignore documentation and examples
+README.md
+knowledge_base_example.md
+
+# Ignore local development files
+*.pyc
+__pycache__/
+*.log
+
+# Ignore data and indexes (mounted at runtime)
+docs/
+faiss_index/
+
+# Ignore agent source code (unless you want it in this container)
+agents/
+
+# Ignore Docker and Compose files (not needed in container)
+Dockerfile
+docker-compose.yaml
+

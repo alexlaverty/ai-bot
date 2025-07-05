@@ -1,0 +1,22 @@
+services:
+  chatbot:
+    build: .
+    container_name: chatbot
+    volumes:
+      - ./faiss_index:/app/faiss_index
+    ports:
+      - "8501:8501"
+    environment:
+      - MODEL_PROVIDER=local
+
+  # agent1:
+  #   build: ./agents/agent1
+  #   container_name: agent1
+  #   ports:
+  #     - "9001:9001"
+
+  # agent2:
+  #   build: ./agents/agent2
+  #   container_name: agent2
+  #   ports:
+  #     - "9002:9002"
