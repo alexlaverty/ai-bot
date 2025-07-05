@@ -8,6 +8,25 @@ services:
       - "8501:8501"
     environment:
       - MODEL_PROVIDER=local
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+
+  flatnotes:
+    container_name: flatnotes
+    image: dullage/flatnotes:latest
+    environment:
+      PUID: 1000
+      PGID: 1000
+      FLATNOTES_AUTH_TYPE: "password"
+      FLATNOTES_USERNAME: "admin"
+      FLATNOTES_PASSWORD: "admin"
+      FLATNOTES_SECRET_KEY: "AS98d7(A*SD79A*SD7*&^*&^87aD*"
+    volumes:
+      - "/d/src/ai-bot/docs:/data"
+      # Optional. Allows you to save the search index in a different location:
+      - "/d/src/ai-bot/index:/data/.flatnotes"
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
 
   # agent1:
   #   build: ./agents/agent1

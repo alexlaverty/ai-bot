@@ -1,4 +1,5 @@
 # settings.py
+import os
 MODEL_PROVIDER = "local"  # Options: "google", "local"
 
 # --- Google Gemini Configuration ---
@@ -14,7 +15,7 @@ MODEL_PROVIDER = "local"  # Options: "google", "local"
 # ollama pull llama3
 # ollama pull nomic-embed-text
 
-OLLAMA_BASE_URL = "http://localhost:11434"
+OLLAMA_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")
 
 # Model for generating text (chat)
 LOCAL_LLM_MODEL = "llama3:8b"
